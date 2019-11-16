@@ -87,6 +87,12 @@ To specify the network payment flow , these constants are available
 | PAYMENT_NETWORK_FLOW.VODAFONE_TO_TIGO     | Vodafone to Tigo     |
 | PAYMENT_NETWORK_FLOW.VODAFONE_TO_VODAFONE | Vodafone to Vodafone |
 
+## Todo
+
+- Write Tests
+
+**If you are a developer you can help me write tests**
+
 ## Me
 
 Want to say hi? Will be happy to hear from you
