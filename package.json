@@ -1,0 +1,26 @@
+{
+  "name": "mazzuma-node-sdk",
+  "version": "1.0.0",
+  "description": "A NodeJS library for Mazzuma",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/mazzuma-node-sdk"
+  },
+  "keywords": [
+    "mazzuma",
+    "node",
+    "payments",
+    "mobile",
+    "money"
+  ],
+  "author": "Asad Adams",
+  "license": "ISC",
+  "dependencies": {
+    "reqwest": "^2.0.5",
+    "xhr2": "^0.2.0"
+  }
+}
