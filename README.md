@@ -8,7 +8,6 @@ Please keep in mind that this package is for use with server-side Node that use 
 
      npm install mazzuma-node-library --save
 
-
 ## Usage
 
 The package needs to be configured with your account's API key which is available in your [dashboard](https://dashboard.mazzuma.com/apikey.php).
@@ -16,8 +15,15 @@ The package needs to be configured with your account's API key which is availabl
 Initializing package
 
 ```
-mazzuma = require("./src/Mazzuma");
-mazzuma = new mazzuma(API_KEY);
+var Mazzuma = require("mazzuma-node-library");
+var Maz = new Mazzuma.Mazzuma(APIKEY);
+```
+
+**OR**
+
+```
+import Mazzuma from "mazzuma-node-library";
+var Maz = new Mazzuma.Mazzuma(APIKEY);
 ```
 
 Making a payment request

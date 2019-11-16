@@ -1,2 +1,2 @@
 mazzuma = require("./src/Mazzuma");
-module.exports = mazzuma;
+module.exports.Mazzuma = mazzuma;
