@@ -63,6 +63,14 @@ Maz
   });
 ```
 
+Generating orderID
+
+```
+Maz.makeOrderId(length);
+```
+
+length = length of IDs
+
 ### Requests CONSTANTS
 
 To specify the sender's network, these constants are available

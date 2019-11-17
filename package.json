@@ -1,6 +1,6 @@
 {
   "name": "mazzuma-node-library",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "description": "A NodeJS library for Mazzuma",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,6 @@
   "author": "Asad Adams",
   "license": "ISC",
   "dependencies": {
-    "reqwest": "^2.0.5",
-    "xhr2": "^0.2.0"
+    "node-fetch": "^2.6.0"
   }
 }

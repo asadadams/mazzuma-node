@@ -1,4 +1,4 @@
-var reqwest = require("reqwest");
+const fetch = require("node-fetch");
 class Mazzuma {
   constructor(APIKEY) {
     this.APIKEY = APIKEY;
@@ -30,13 +30,21 @@ class Mazzuma {
     };
   }
 
+  makeOrderId(l) {
+    var text = "";
+    var numberlist = "9922116754321098650123456789";
+    for (var i = 0; i < l; i++) {
+      text += numberlist.charAt(Math.floor(Math.random() * numberlist.length));
+    }
+    return text;
+  }
+
   //Making Payments
   makePaymentRequest(requestPayload) {
     return new Promise((resolve, reject) => {
-      reqwest({
-        url: `${this.BASE_URL}api_call.php`,
+      fetch(`${this.BASE_URL}api_call.php`, {
         method: "post",
-        data: {
+        body: JSON.stringify({
           price: requestPayload.price,
           network: requestPayload.sender_network,
           recipient_number: requestPayload.recipient_number,
@@ -44,30 +52,31 @@ class Mazzuma {
           option: requestPayload.payment_network_flow,
           apikey: this.APIKEY,
           orderID: requestPayload.orderID
-        },
-        error: err => {
-          reject(err);
-        },
-        success: res => {
-          resolve(res);
-        }
-      });
+        })
+      })
+        .then(res => res.json())
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
     });
   }
 
   //Checking payment status
   checkTransactionStatus(transactionId) {
     return new Promise((resolve, reject) => {
-      reqwest({
-        url: `${this.BASE_URL}checktransaction.php?orderID=${transactionId}`,
-        method: "get",
-        error: err => {
-          reject(err);
-        },
-        success: res => {
-          resolve(res);
-        }
-      });
+      fetch(`${this.BASE_URL}checktransaction.php?orderID=${transactionId}`, {
+        method: "get"
+      })
+        .then(res => res.json())
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
     });
   }
 }
