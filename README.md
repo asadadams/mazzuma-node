@@ -29,13 +29,13 @@ var Maz = new Mazzuma.Mazzuma(APIKEY);
 Making a payment request
 
 ```
-mazzuma
+Maz
   .makePaymentRequest({
     price: 1,
-    sender_network: mazzuma.SENDER_NETWORK.MTN,
+    sender_network: Maz.SENDER_NETWORK.MTN,
     recipient_number: "0205555555",
     sender_number: "024444444",
-    payment_network_flow: mazzuma.PAYMENT_NETWORK_FLOW.MTN_TO_VODAFONE,
+    payment_network_flow: Maz.PAYMENT_NETWORK_FLOW.MTN_TO_VODAFONE,
     orderID: "348967533"
   })
   .then(response => {
@@ -50,7 +50,7 @@ mazzuma
 Checking transaction status
 
 ```
-mazzuma
+Maz
   .checkTransactionStatus("234322")
   .then(response => {
     console.error(`Response: ${response}`);
