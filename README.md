@@ -66,7 +66,7 @@ Maz
 Generating orderID
 
 ```
-Maz.makeOrderId(length);
+Maz.generateOrderId(length);
 ```
 
 length = length of IDs

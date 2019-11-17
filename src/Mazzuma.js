@@ -30,7 +30,7 @@ class Mazzuma {
     };
   }
 
-  makeOrderId(l) {
+  generateOrderId(l) {
     var text = "";
     var numberlist = "9922116754321098650123456789";
     for (var i = 0; i < l; i++) {
