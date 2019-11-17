@@ -39,7 +39,7 @@ Maz
     orderID: "348967533"
   })
   .then(response => {
-    console.error(`Response: ${response}`);
+    console.log(response);
     //{"code":1,"status":"success","id":"XXXXX"}
   })
   .catch(error => {
@@ -53,7 +53,7 @@ Checking transaction status
 Maz
   .checkTransactionStatus("234322")
   .then(response => {
-    console.error(`Response: ${response}`);
+    console.log(response);
     // {"code":200,"id":"XXXXX","status":"Successful"}
     // {"code":200,"id":"XXXXX","status":"Failed"}
     // {"code":200,"id":"XXXXX","status":"Pending"}
