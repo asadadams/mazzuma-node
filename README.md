@@ -33,7 +33,7 @@ mazzuma
   .makePaymentRequest({
     price: 1,
     sender_network: mazzuma.SENDER_NETWORK.MTN,
-    recipient_number: "0207368257",
+    recipient_number: "0205555555",
     sender_number: "024444444",
     payment_network_flow: mazzuma.PAYMENT_NETWORK_FLOW.MTN_TO_VODAFONE,
     orderID: "348967533"
