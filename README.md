@@ -1,5 +1,12 @@
 # Mazzuma Node.js Library
 
+[![NPM](https://nodei.co/npm/mazzuma-node-library.png)](https://nodei.co/npm/mazzuma-node-library/)
+
+![Open Source Love svg2](https://badgen.net/npm/dt/mazzuma-node-library)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/asadadams/mazzuma-node-library/graphs/commit-activity)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
+![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
+
 The Mazzuma Node library provides convenient access to the mazzuma API from applications written in server-side JavaScript.
 
 Please keep in mind that this package is for use with server-side Node that use a mazzuma API key. In order to get this API key you must have an account with Mazzuma
