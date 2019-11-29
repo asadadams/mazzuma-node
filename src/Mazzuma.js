@@ -30,7 +30,8 @@ class Mazzuma {
     };
   }
 
-  generateOrderId(l) {
+  //Generating an id of a particular length
+  generateOrderId(l = 7) {
     var text = "";
     var numberlist = "9922116754321098650123456789";
     for (var i = 0; i < l; i++) {
@@ -39,44 +40,82 @@ class Mazzuma {
     return text;
   }
 
+  checkObjectProps(obj, arrayOfProps) {
+    for (let i = 0; i < arrayOfProps.length; i++) {
+      if (!obj.hasOwnProperty(arrayOfProps[i]))
+        return { prop: arrayOfProps[i] };
+    }
+    return true;
+  }
+
   //Making Payments
   makePaymentRequest(requestPayload) {
-    return new Promise((resolve, reject) => {
-      fetch(`${this.BASE_URL}api_call.php`, {
-        method: "post",
-        body: JSON.stringify({
-          price: requestPayload.price,
-          network: requestPayload.sender_network,
-          recipient_number: requestPayload.recipient_number,
-          sender: requestPayload.sender_number,
-          option: requestPayload.payment_network_flow,
-          apikey: this.APIKEY,
-          orderID: requestPayload.orderID
-        })
-      })
-        .then(res => res.json())
-        .then(response => {
-          resolve(response);
-        })
-        .catch(error => {
-          reject(error);
-        });
+    return new Promise(async (resolve, reject) => {
+      let arrayOfProps = [
+        "price",
+        "sender_network",
+        "recipient_number",
+        "sender_number",
+        "payment_network_flow",
+        "orderID"
+      ];
+
+      let checkPropsResult = await this.checkObjectProps(
+        requestPayload,
+        arrayOfProps
+      );
+
+      if (checkPropsResult === true) {
+        if (requestPayload.sender_network) {
+          if (requestPayload.payment_network_flow) {
+            fetch(`${this.BASE_URL}api_call.php`, {
+              method: "post",
+              body: JSON.stringify({
+                price: requestPayload.price,
+                network: requestPayload.sender_network,
+                recipient_number: requestPayload.recipient_number,
+                sender: requestPayload.sender_number,
+                option: requestPayload.payment_network_flow,
+                apikey: this.APIKEY,
+                orderID: requestPayload.orderID
+              })
+            })
+              .then(res => res.json())
+              .then(response => {
+                resolve(response);
+              })
+              .catch(error => {
+                reject(error);
+              });
+          } else {
+            reject("Invalid payment_network_flow constant");
+          }
+        } else {
+          reject("Invalid sender_network constant");
+        }
+      } else {
+        reject(`"${checkPropsResult.prop}" prop missing in object`);
+      }
     });
   }
 
   //Checking payment status
   checkTransactionStatus(transactionId) {
     return new Promise((resolve, reject) => {
-      fetch(`${this.BASE_URL}checktransaction.php?orderID=${transactionId}`, {
-        method: "get"
-      })
-        .then(res => res.json())
-        .then(response => {
-          resolve(response);
+      if (transactionId) {
+        fetch(`${this.BASE_URL}checktransaction.php?orderID=${transactionId}`, {
+          method: "get"
         })
-        .catch(error => {
-          reject(error);
-        });
+          .then(res => res.json())
+          .then(response => {
+            resolve(response);
+          })
+          .catch(error => {
+            reject(error);
+          });
+      } else {
+        reject("Transaction id is missing");
+      }
     });
   }
 }

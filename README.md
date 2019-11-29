@@ -106,7 +106,11 @@ To specify the network payment flow , these constants are available
 
 - Write Tests
 
-**If you are a developer you can help me write tests**
+## [Change log](CHANGELOG.md)
+
+## License
+
+[MIT](https://lbesson.mit-license.org/)
 
 ## Me
 
