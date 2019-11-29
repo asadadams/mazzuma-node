@@ -1,6 +1,6 @@
 {
   "name": "mazzuma-node-library",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "A NodeJS library for Mazzuma",
   "main": "index.js",
   "scripts": {
