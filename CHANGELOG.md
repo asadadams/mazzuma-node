@@ -1,5 +1,11 @@
 ## Change log
 
+## [3.1.1] - 12-12-2019
+
+### Changed
+
+- Changed repo link
+
 ## [3.1.0] - 29-11-2019
 
 ### Added
