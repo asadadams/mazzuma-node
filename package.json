@@ -1,6 +1,6 @@
 {
   "name": "mazzuma-node-library",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "A NodeJS library for Mazzuma",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://www.github.com/asadadams/mazzuma-node-library"
+    "url": "https://www.github.com/asadadams/mazzuma-node"
   },
   "keywords": [
     "mazzuma",
